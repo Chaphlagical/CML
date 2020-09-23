@@ -1,5 +1,5 @@
 template<typename T, size_t N>
-inline const Chaf::vec<T, N> operator+(const Chaf::vec<T, N>& v1, const Chaf::vec<T, N>& v2)
+inline constexpr Chaf::vec<T, N> operator+(const Chaf::vec<T, N>& v1, const Chaf::vec<T, N>& v2)
 {
 	Chaf::vec<T, N> res;
 	for (size_t i = 0; i < N; i++)
@@ -8,7 +8,7 @@ inline const Chaf::vec<T, N> operator+(const Chaf::vec<T, N>& v1, const Chaf::ve
 }
 
 template<typename T, size_t N>
-inline const Chaf::vec<T, N> operator-(const Chaf::vec<T, N>& v1, const Chaf::vec<T, N>& v2)
+inline constexpr Chaf::vec<T, N> operator-(const Chaf::vec<T, N>& v1, const Chaf::vec<T, N>& v2)
 {
 	Chaf::vec<T, N> res;
 	for (size_t i = 0; i < N; i++)
@@ -17,7 +17,7 @@ inline const Chaf::vec<T, N> operator-(const Chaf::vec<T, N>& v1, const Chaf::ve
 }
 
 template<typename T, size_t N, typename F>
-inline const Chaf::vec<T, N> operator*(const Chaf::vec<T, N>& v, const F& s)
+inline constexpr Chaf::vec<T, N> operator*(const Chaf::vec<T, N>& v, const F& s)
 {
 	Chaf::vec<T, N> res;
 	for (size_t i = 0; i < N; i++)
@@ -26,13 +26,13 @@ inline const Chaf::vec<T, N> operator*(const Chaf::vec<T, N>& v, const F& s)
 }
 
 template<typename T, size_t N, typename F>
-inline const Chaf::vec<T, N> operator*(const F& s, const Chaf::vec<T, N>& v)
+inline constexpr Chaf::vec<T, N> operator*(const F& s, const Chaf::vec<T, N>& v)
 {
 	return v * s;
 }
 
 template<typename T, size_t N, typename F>
-inline const Chaf::vec<T, N> operator/(const Chaf::vec<T, N>& v, const F& s)
+inline constexpr Chaf::vec<T, N> operator/(const Chaf::vec<T, N>& v, const F& s)
 {
 	Chaf::vec<T, N> res;
 	for (size_t i = 0; i < N; i++)
@@ -41,7 +41,7 @@ inline const Chaf::vec<T, N> operator/(const Chaf::vec<T, N>& v, const F& s)
 }
 
 template<typename T, size_t N>
-inline const T Chaf::vec<T, N>::dot(const Chaf::vec<T, N>& v)
+inline constexpr T Chaf::vec<T, N>::dot(const Chaf::vec<T, N>& v)
 {
 	T res = 0;
 	for (size_t i = 0; i < N; i++)
@@ -50,7 +50,7 @@ inline const T Chaf::vec<T, N>::dot(const Chaf::vec<T, N>& v)
 }
 
 template<typename T, size_t N>
-inline const Chaf::vec<T, N> Chaf::vec<T, N>::cross(const vec<T, N>& v)
+inline constexpr Chaf::vec<T, N> Chaf::vec<T, N>::cross(const vec<T, N>& v)
 {
 	CHAF_ASSERT(N == 3, "Only support 3 dimension for now!");
 	return Chaf::vec<T, 3>{
@@ -61,7 +61,7 @@ inline const Chaf::vec<T, N> Chaf::vec<T, N>::cross(const vec<T, N>& v)
 }
 
 template<typename T, size_t N>
-inline const Chaf::vec<T, N> Chaf::vec<T, N>::hadamardProduct(const vec<T, N>& v)
+inline constexpr Chaf::vec<T, N> Chaf::vec<T, N>::hadamardProduct(const vec<T, N>& v)
 {
 	Chaf::vec<T, N> res;
 	for (size_t i = 0; i < N; i++)
@@ -70,7 +70,7 @@ inline const Chaf::vec<T, N> Chaf::vec<T, N>::hadamardProduct(const vec<T, N>& v
 }
 
 template<typename T, size_t N>
-inline const T Chaf::vec<T, N>::norm2()
+inline constexpr T Chaf::vec<T, N>::norm2()
 {
 	T res = 0;
 	for (size_t i = 0; i < N; i++)
@@ -79,13 +79,13 @@ inline const T Chaf::vec<T, N>::norm2()
 }
 
 template<typename T, size_t N>
-inline const T Chaf::vec<T, N>::norm()
+inline constexpr T Chaf::vec<T, N>::norm()
 {
-	return sqrt<T>(norm2());
+	return Sqrt<T>(norm2());
 }
 
 template<typename T, size_t N>
-inline const Chaf::vec<T, N> Chaf::vec<T, N>::normalize()
+inline constexpr Chaf::vec<T, N> Chaf::vec<T, N>::normalize()
 {
 	T n = norm();
 	return *this / n;

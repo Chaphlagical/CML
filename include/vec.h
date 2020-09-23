@@ -1,21 +1,24 @@
-#pragma
+#ifndef VEC_H
+#define VEC_H
+
 #include "array1D.h"
 
 namespace Chaf
 {
 	template<typename T, const size_t N>
-	struct vec: public array1D<T,N>
+	struct vec : public array1D<T, N>
 	{
 	public:
 		using array1D::array1D;
+		using array1D::cast;
 
-		inline const T dot(const vec<T, N>& v);
-		inline const vec<T, N> cross(const vec<T, N>& v);
-		inline const vec<T, N> hadamardProduct(const vec<T, N>& v);
-		inline const T norm();
-		inline const T norm2();
+		inline constexpr T dot(const vec<T, N>& v);
+		inline constexpr vec<T, N> cross(const vec<T, N>& v);
+		inline constexpr vec<T, N> hadamardProduct(const vec<T, N>& v);
+		inline constexpr T norm();
+		inline constexpr T norm2();
 
-		inline const vec<T, N> normalize();
+		inline constexpr vec<T, N> normalize();
 	};
 
 	template<size_t N>
@@ -43,3 +46,5 @@ namespace Chaf
 }
 
 #include "./detail/vec.inl"
+
+#endif // !VEC_H

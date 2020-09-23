@@ -1,4 +1,7 @@
-#pragma
+#ifndef POINT_H
+#define POINT_H
+
+
 #include "array1D.h"
 
 namespace Chaf
@@ -8,6 +11,7 @@ namespace Chaf
 	{
 	public:
 		using array1D::array1D;
+		using array1D::cast;
 
 		inline const T distance2(const point<T, N>& p);
 		inline const T distance(const point<T, N>& p);
@@ -38,3 +42,5 @@ namespace Chaf
 }
 
 #include "./detail/point.inl"
+
+#endif // !POINT_H

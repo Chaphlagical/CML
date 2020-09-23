@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MATRIX_H
+#define MATRIX_H
+
 #include "array2D.h"
 
 namespace Chaf
@@ -80,3 +82,5 @@ namespace Chaf
 }
 
 #include "./detail/matrix.inl"
+
+#endif // !MATRIX_H

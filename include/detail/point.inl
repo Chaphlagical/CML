@@ -28,7 +28,7 @@ inline const T Chaf::point<T, N>::distance2(const Chaf::point<T, N>& p)
 template<typename T, size_t N>
 inline const T Chaf::point<T, N>::distance(const Chaf::point<T, N>& p)
 {
-	return sqrt<T>(distance2(p));
+	return Sqrt<T>(distance2(p));
 }
 
 #include <iostream>

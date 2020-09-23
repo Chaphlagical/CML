@@ -1,4 +1,6 @@
-#pragma
+#ifndef COLOR_H
+#define COLOR_H
+
 #include "array1D.h"
 
 namespace Chaf
@@ -26,3 +28,5 @@ namespace Chaf
 }
 
 #include "./detail/color.inl"
+
+#endif // !COLOR_H
