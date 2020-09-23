@@ -1,2 +1,3 @@
-# Chaf-Math
+# Chaf Mathematics Library
+
 My Mathematics Library
