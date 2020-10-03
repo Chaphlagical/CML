@@ -15,4 +15,4 @@ include_directories(
 AddSubDirRec(src)
 AddSubDirRec(include)
 
-Ubpa_Export(DIRECTORIES "include")
+ExportProject(DIRECTORIES "include")
