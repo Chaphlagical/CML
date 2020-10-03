@@ -128,6 +128,11 @@ namespace Chaf
 				{ 0, 0, 0,1 }
 			};
 		}
+
+		inline static matrix<T, 4, 4> projection()
+		{
+
+		}
 	};
 
 	using transformf = transform<float>;

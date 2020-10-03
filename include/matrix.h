@@ -21,6 +21,7 @@ namespace Chaf
 			return res;
 		}
 
+		inline const matrix<T, M, N> hadamardProduct(const matrix<T, M, N>& mat);
 		inline const matrix<T, M, N> normalize() { return (*this) / sum(); }
 		inline const T det() noexcept;
 		inline const matrix<T, M, N> transpose();

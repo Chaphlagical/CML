@@ -70,6 +70,16 @@ inline constexpr Chaf::matrix<T, M, N> operator*(const Chaf::matrix<T, M, N>& ma
 	return s * mat;
 }
 
+template<typename T, size_t M, size_t N>
+inline const Chaf::matrix<T, M, N> hadamardProduct(const Chaf::matrix<T, M, N>& mat)
+{
+	Chaf::matrix<T, M, N> res;
+	for (size_t i = 0; i < M; i++)
+		for (size_t j = 0; j < N; j++)
+			res(i, j) = (*this)[i][j] * mat[i][j];
+	return res;
+}
+
 template<typename T>
 inline const T Chaf::matrix<T, 0, 0>::det() noexcept
 {
