@@ -1,6 +1,6 @@
 macro(Initcpkg)
     include(FetchContent)
-    set(cpkg_VERSION 0.0.3)
+    set(cpkg_VERSION 0.0.4)
     message(STATUS "find package: cpkg ${cpkg_VERSION}")
     find_package(cpkg ${cpkg_VERSION} QUIET)
     if(NOT cpkg_FOUND)
