@@ -1,45 +1,30 @@
-template<typename T, size_t N>
-inline constexpr Chaf::vec<T, N> operator-(const Chaf::point<T, N>& p1, const Chaf::point<T, N>& p2)
+namespace Chaf
 {
-	Chaf::vec<T, N> res;
-	for (size_t i = 0; i < N; i++)
-		res[i] = p1[i] - p2[i];
-	return res;
-}
-
-template<typename T, size_t N>
-inline constexpr Chaf::point<T, N> operator+(const Chaf::point<T, N>& p, const Chaf::vec<T, N>& v)
-{
-	Chaf::point<T, N> res;
-	for (size_t i = 0; i < N; i++)
-		res[i] = p[i] + v[i];
-	return res;
-}
-
-template<typename T, size_t N>
-inline const T Chaf::point<T, N>::distance2(const Chaf::point<T, N>& p)
-{
-	T res = 0;
-	for (size_t i = 0; i < N; i++)
-		res += ((*this)[i] - p[i]) * ((*this)[i] - p[i]);
-	return res;
-}
-
-template<typename T, size_t N>
-inline const T Chaf::point<T, N>::distance(const Chaf::point<T, N>& p)
-{
-	return Sqrt<T>(distance2(p));
-}
-
-#include <iostream>
-#include <string>
-
-template<typename T, size_t N>
-std::ostream& operator<<(std::ostream& os, const Chaf::point<T, N>& v)
-{
-	os << "point<" << typeid(T).name() << ", " << N << ">" << std::endl;
-	for (size_t i = 0; i < N; i++)
-		os << v[i] << " ";
-	os << std::endl;
-	return os;
+	namespace cml
+	{
+		template<typename T, size_t N>
+		const vec<T, N>operator-(const point<T, N>& p1, const point<T, N>& p2)
+		{
+			vec<T, N> v;
+			for (size_t i = 0; i < N; i++)v[i] = p1[i] - p2[i];
+			return v;
+		}
+		template<typename T, size_t N>
+		const point<T, N>operator+(const point<T, N>& p, const vec<T, N>& v)
+		{
+			point<T, N> res;
+			for (size_t i = 0; i < N; i++)res[i] = p[i] + v[i];
+			return res;
+		}
+		template<typename T, size_t N>
+		const T point<T, N>::distance2(const point<T, N>& p) const
+		{
+			return (*this - p).norm2();
+		}
+		template<typename T, size_t N>
+		const T point<T, N>::distance(const point<T, N>& p) const
+		{
+			return (*this - p).norm();
+		}
+	}
 }

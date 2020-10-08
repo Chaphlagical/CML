@@ -15,11 +15,11 @@ namespace Chaf
 		array2D(std::array<std::array<T, M>, N> arr) :data(arr) {}
 		array2D(std::initializer_list<std::initializer_list<T>> il)
 		{
-			CHAF_ASSERT(il.size() == N, "Too many or too few parameters!");
+			CHAF_ASSERT(il.size() == N, "incorrect number of parameters!");
 			auto& p = data.begin();
 			for (auto ptr = il.begin(); ptr != il.end(); ptr++)
 			{
-				CHAF_ASSERT(ptr->size() == M, "Too many or too few parameters!");
+				CHAF_ASSERT(ptr->size() == M, "incorrect number of parameters!");
 				auto& subp = p->begin();
 				for (auto ptr_ = ptr->begin(); ptr_ != ptr->end(); ptr_++)
 				{
@@ -29,7 +29,12 @@ namespace Chaf
 				p++;
 			}
 		}
-
+		array2D(const T& val): data()
+		{
+			for (size_t i = 0; i < M; i++)
+				for (size_t j = 0; j < N; j++)
+					data[i][j] = val;
+		}
 		inline void reset()
 		{
 			for (auto& x : data)
