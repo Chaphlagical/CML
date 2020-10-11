@@ -39,7 +39,7 @@ namespace Chaf
 		template<typename T, size_t N>
 		const T vec<T, N>::norm() const
 		{
-			return Sqrt<T>((*this).norm2());
+			return std::sqrt((*this).norm2());
 		}
 
 		template<typename T, size_t N>
@@ -57,14 +57,14 @@ namespace Chaf
 		template<typename T, size_t N>
 		const bool vec<T, N>::isParallel(const vec<T, N>& v) const
 		{
-			if (Abs<T>(Abs<T>(v.dot(*this)) - v.norm() * (*this).norm()) < EPSILON<T>)return true;
+			if (std::abs(std::abs(v.dot(*this)) - v.norm() * (*this).norm()) < EPSILON<T>)return true;
 			return false;
 		}
 
 		template<typename T, size_t N>
 		const bool vec<T, N>::isVertical(const vec<T, N>& v) const
 		{
-			if (Abs<T>(Abs<T>(v.dot(*this)) < EPSILON<T>))return true;
+			if (std::abs(std::abs(v.dot(*this)) < EPSILON<T>))return true;
 			return false;
 		}
 

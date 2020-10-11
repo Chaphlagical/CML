@@ -3,7 +3,6 @@
 
 #include <array>
 #include <iostream>
-#include "operate.h"
 #include "base.h"
 #include <initializer_list>
 
@@ -37,6 +36,12 @@ namespace Chaf
 		inline F& cast() { return (const_cast<F&>(*(static_cast<F*>(this)))); }
 		inline const T& operator[](const size_t index) const { return data[index]; }
 		inline T& operator[](const size_t index) { return data[index]; }
+
+		inline T& x() { static_assert(N >= 1, "error"); return data[0]; }
+		inline T& y() { static_assert(N >= 2, "error"); return data[1]; }
+		inline T& z() { static_assert(N == 3, "error"); return data[2]; }
+		inline T& u() { static_assert(N == 2, "error"); return data[0]; }
+		inline T& v() { static_assert(N == 2, "error"); return data[1]; }
 	private:
 		std::array<T, N> data;
 	};	

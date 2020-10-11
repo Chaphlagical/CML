@@ -16,25 +16,10 @@ namespace Chaf
 	constexpr auto ONE = static_cast<T>(1);
 
 	template<typename T>
-	constexpr T Sqrt(const T val) { return static_cast<T>(std::sqrt(static_cast<double>(val))); }
+	constexpr T to_radians(const T val) { return static_cast<T>((PI<double> / 180.0) * static_cast<double>(val)); }
 
 	template<typename T>
-	constexpr T Abs(const T val) { return (val > 0 ? val : -val); }
-
-	template<typename T>
-	constexpr T Cos(const T val) { return static_cast<T>(std::cos(static_cast<double>(val))); }
-
-	template<typename T>
-	constexpr T Sin(const T val) { return static_cast<T>(std::sin(static_cast<double>(val))); }
-
-	template<typename T>
-	constexpr T Tan(const T val) { return static_cast<T>(std::tan(static_cast<double>(val))); }
-
-	template<typename T>
-	constexpr T Deg2Rad(const T val) { return static_cast<T>((PI<double> / 180.0) * static_cast<double>(val)); }
-
-	template<typename T>
-	constexpr T Rad2Deg(const T val) { return static_cast<T>((180.0 / PI<double>) * static_cast<double>(val)); }
+	constexpr T to_degree(const T val) { return static_cast<T>((180.0 / PI<double>) * static_cast<double>(val)); }
 }
 #include <iostream>
 #ifndef NDEBUG
