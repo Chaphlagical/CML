@@ -28,6 +28,9 @@ namespace Chaf
 	constexpr T Sin(const T val) { return static_cast<T>(std::sin(static_cast<double>(val))); }
 
 	template<typename T>
+	constexpr T Tan(const T val) { return static_cast<T>(std::tan(static_cast<double>(val))); }
+
+	template<typename T>
 	constexpr T Deg2Rad(const T val) { return static_cast<T>((PI<double> / 180.0) * static_cast<double>(val)); }
 
 	template<typename T>

@@ -129,9 +129,25 @@ namespace Chaf
 			};
 		}
 
-		inline static matrix<T, 4, 4> projection()
+		inline static matrix<T, 4, 4> perspective(const T& fov, const T& aspect, const T& near, const T& far)
 		{
+			auto rfov = Deg2Rad<T>(fov);
+			return{
+				{1 / (aspect * Tan<T>(rfov / 2)), 0, 0, 0},
+				{0,1 / (Tan<T>(rfov / 2)), 0, 0},
+				{0, 0, -(far + near) / (far - near), 0},
+				{0, 0, -1, 0}
+			};
+		}
 
+		inline static matrix<T, 4, 4> ortho(const T& left, const T& right, const T& bottom, const T& top, const T& near, const T& far)
+		{
+			return {
+				{2 / (right - left), 0, 0, 0},
+				{0, 2 / (top - bottom, 0, 0)},
+				{0, 0, -2 / (far - near), -(far + near) / (far - near)},
+				{0, 0, 0, 1}
+			};
 		}
 	};
 
