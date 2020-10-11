@@ -1,6 +1,9 @@
 #ifndef TRANSFORM_H
 #define TRANSFORM_H
 
+#include "vec.h"
+#include "matrix.h"
+
 namespace Chaf
 {
 	template<typename T>

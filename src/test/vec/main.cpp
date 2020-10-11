@@ -1,8 +1,5 @@
 #include <iostream>
-#include <vec.h>
-#include <color.h>
-#include <point.h>
-#include <matrix.h>
+#include <CML/cml.h>
 using namespace Chaf;
 int main()
 {
