@@ -39,7 +39,7 @@ namespace Chaf
 		{
 			for (auto& x : data)
 				for (auto& y : x)
-					y = ZERO<T>;
+					y = 0;
 		}
 
 		template<typename F>

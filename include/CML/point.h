@@ -18,6 +18,9 @@ namespace Chaf
 
 			const T distance2(const point<T, N>& p) const;
 			const T distance(const point<T, N>& p) const;
+
+			const bool operator==(const point<T, N>& p) const;
+			const bool operator!=(const point<T, N>& p) const;
 		};
 
 		template<size_t N>

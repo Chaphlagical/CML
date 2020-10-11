@@ -17,6 +17,18 @@ namespace Chaf
 			return res;
 		}
 		template<typename T, size_t N>
+		const bool point<T, N>::operator==(const point<T, N>& p) const
+		{
+			for (size_t i = 0; i < N; i++)
+				if ((*this)[i] != p[i])return false;
+			return true;
+		}
+		template<typename T, size_t N>
+		const bool point<T, N>::operator!=(const point<T, N>& p) const
+		{
+			return !((*this) == p);
+		}
+		template<typename T, size_t N>
 		const T point<T, N>::distance2(const point<T, N>& p) const
 		{
 			return (*this - p).norm2();

@@ -88,19 +88,16 @@ namespace Chaf
 			}
 			return res;
 		}
+		template<typename T, size_t M, size_t N, size_t K>
+		const mat<T, M, N> operator*(const mat<T, M, N>& m1, const mat<T, N, K>& m2)
+		{
+			mat<T, M, K> m;
+			for (size_t i = 0; i < M; i++)
+				for (size_t k = 0; k < K; k++)
+					for (size_t j = 0; j < N; j++)
+						m(i, k) += m1(i, j) * m2(j, k);
+			return m;
+		}
 	}
-}
-
-// opertor override
-
-template<typename T, size_t M, size_t N, size_t K>
-const Chaf::cml::mat<T, M, N> operator*(const Chaf::cml::mat<T, M, N>& m1, const Chaf::cml::mat<T, N, K>& m2)
-{
-	Chaf::cml::mat<T, M, K> m;
-	for (size_t i = 0; i < M; i++)
-		for (size_t k = 0; k < K; k++)
-			for (size_t j = 0; j < N; j++)
-				m(i, k) += m1(i, j) * m2(j, k);
-	return m;
 }
 
