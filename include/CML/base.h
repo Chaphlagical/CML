@@ -27,8 +27,8 @@ namespace Chaf
 }
 #include <iostream>
 #ifndef NDEBUG
-#define CHAF_ASSERT(x,...) {if(!(x)) {std::cout<<"Assertion Failed: "<<__VA_ARGS__;__debugbreak();}}
+#define CHAF_CML_ASSERT(x,...) {if(!(x)) {std::cout<<"Assertion Failed: "<<__VA_ARGS__;__debugbreak();}}
 #else
-#define CHAF_ASSERT(x,...)
+#define CHAF_CML_ASSERT(x,...)
 #endif
 #endif // !BASE_H

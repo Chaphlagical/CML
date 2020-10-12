@@ -15,11 +15,11 @@ namespace Chaf
 		array2D(std::array<std::array<T, M>, N> arr) :data(arr) {}
 		array2D(std::initializer_list<std::initializer_list<T>> il)
 		{
-			CHAF_ASSERT(il.size() == N, "incorrect number of parameters!");
+			CHAF_CML_ASSERT(il.size() == N, "incorrect number of parameters!");
 			auto& p = data.begin();
 			for (auto ptr = il.begin(); ptr != il.end(); ptr++)
 			{
-				CHAF_ASSERT(ptr->size() == M, "incorrect number of parameters!");
+				CHAF_CML_ASSERT(ptr->size() == M, "incorrect number of parameters!");
 				auto& subp = p->begin();
 				for (auto ptr_ = ptr->begin(); ptr_ != ptr->end(); ptr_++)
 				{

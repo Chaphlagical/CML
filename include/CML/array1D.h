@@ -16,7 +16,7 @@ namespace Chaf
 		array1D(std::array<T, N> arr) :data(arr) {}
 		array1D(std::initializer_list<T> il)
 		{
-			CHAF_ASSERT(il.size() == N, "incorrect number of parameters!");
+			CHAF_CML_ASSERT(il.size() == N, "incorrect number of parameters!");
 			auto& p = data.begin();
 			for (auto ptr = il.begin(); ptr != il.end(); ptr++)
 			{
