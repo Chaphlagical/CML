@@ -161,11 +161,13 @@ namespace Chaf
 				res = transform::trans(v, rotationQuat(angle));
 				return res;
 			}
-
+#include <iostream>
 			inline static mat<T, 4, 4> lookAt(const point<T, 3>& position, const point<T, 3>& target, const vec<T, 3> up)
 			{
-				vec<T, 3> zAxis = (position - target).normalize();
-				vec<T, 3> xAxis = static_cast<vec<T, 3>>(up).cross(zAxis).normalize();
+				vec<T, 3> zAxis = (position - target);
+				zAxis = zAxis.normalize();
+				vec<T, 3> xAxis = up.cross(zAxis);
+				xAxis = xAxis.normalize();
 				vec<T, 3> yAxis = zAxis.cross(xAxis);
 				return mat<T, 4, 4>{
 					{ xAxis[0], xAxis[1], xAxis[2], -xAxis.dot(position.cast<vec<T, 3>>()) },
@@ -181,7 +183,7 @@ namespace Chaf
 				return{
 					{1 / (aspect * std::tan(rfov / 2)), 0, 0, 0},
 					{0,1 / (std::tan(rfov / 2)), 0, 0},
-					{0, 0, -(far + near) / (far - near), 0},
+					{0, 0, -(far + near) / (far - near), -(2 * far * near) / (far - near)},
 					{0, 0, -1, 0}
 				};
 			}
