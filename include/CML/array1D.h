@@ -28,7 +28,7 @@ namespace Chaf
 		{
 			for (size_t i = 0; i < N; i++)data[i] = val;
 		}
-		virtual ~array1D() = default;
+
 		inline void reset() { for (auto& x : data)x = 0; }
 		template<typename F>
 		inline const F& cast() const { return (const_cast<F&>(*(static_cast<const F*>(this)))); }
