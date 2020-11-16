@@ -3,12 +3,13 @@
 
 #include <array>
 #include "base.h"
+#include "operate.h"
 #include <initializer_list>
 
 namespace Chaf
 {
-	template<typename T, size_t N, size_t M>
-	struct array2D
+	template<typename T, size_t N, size_t M, typename Class_ = std::array<std::array<T, M>, N>>
+	struct array2D : public Stream2D<Class_, T, M, N>
 	{
 	public:
 		array2D() { reset(); };

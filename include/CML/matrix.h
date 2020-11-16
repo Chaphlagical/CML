@@ -10,8 +10,7 @@ namespace Chaf
 	{
 		template<typename T, size_t M, size_t N>
 		struct mat :
-			public array2D<T, M, N>,
-			public Stream2D<mat<T, M, N>, T, M, N>,
+			public array2D < T, M, N, mat<T, M, N>> ,
 			public Operate2D<mat<T, M, N>, T, M, N>
 		{
 		public:

@@ -4,12 +4,13 @@
 #include <array>
 #include <iostream>
 #include "base.h"
+#include "operate.h"
 #include <initializer_list>
 
 namespace Chaf
 {
-	template<typename T, size_t N>
-	struct array1D
+	template<typename T, size_t N, typename Class_ = std::array<T, N>>
+	struct array1D : public Stream1D<Class_, T, N>
 	{
 	public:
 		array1D() { reset(); };

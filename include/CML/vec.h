@@ -10,9 +10,8 @@ namespace Chaf
 	{
 		template<typename T, const size_t N>
 		struct vec :
-			public array1D<T, N>,
-			public Operate1D<vec<T, N>, T, N>,
-			public Stream1D<vec<T, N>, T, N>
+			public array1D<T, N, vec<T, N>>,
+			public Operate1D<vec<T, N>, T, N>
 		{
 		public:
 			using array1D::array1D;
